@@ -57,8 +57,11 @@ services:
       -url=jdbc:postgresql://postgres:5432/app
       -user=app
       -password=app
-      -connectRetries=10
+      -schemas=app
+      -defaultSchema=app
       -locations=filesystem:/flyway/sql
+      -baselineOnMigrate=true
+      -baselineVersion=0
       migrate
     volumes:
       - ./flyway/sql:/flyway/sql:ro
